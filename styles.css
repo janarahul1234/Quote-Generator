@@ -1,0 +1,168 @@
+/* ==================== GOOGLE FONTS ==================== */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+/* ==================== CSS VARIABLES ==================== */
+:root {
+  /* ========== Colors ========== */
+  --white: #ffffff;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-300: #d1d5db;
+  --gray-600: #4b5563;
+  --gray-950: #030712;
+  --green-600: #16a34a;
+  --green-700: #15803d;
+  --blue-600: #2563eb;
+}
+
+/* ==================== RESET ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font: inherit;
+}
+
+body {
+  font-size: 16px;
+  font-family: "DM Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+
+  color: var(--gray-950);
+  background-color: var(--gray-50);
+}
+
+button {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* ==================== QUOTE ==================== */
+.quote {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.quote__container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 24px;
+}
+
+.quote__buttons {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.quote__button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--gray-600);
+  padding: 10px 18px;
+  border: 1px solid var(--gray-300);
+  border-radius: 5rem;
+  transition: background-color 0.3s ease;
+}
+
+.quote__button:hover {
+  background-color: var(--gray-100);
+}
+
+.btn--blue {
+  border-color: transparent;
+  background-color: var(--blue-600);
+  color: #fff;
+  fill: #fff;
+}
+
+.btn--blue:hover {
+  background-color: #1d4ed8 !important;
+}
+
+.quote__button svg {
+  height: 20px;
+  width: 20px;
+}
+
+.btn-text {
+  font-size: 16px;
+}
+
+.quote__card {
+  position: relative;
+  height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 16px;
+  padding: 16px;
+  text-align: center;
+  background-color: var(--white);
+  border: 1px solid var(--gray-300);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.quote__card-img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+  object-fit: cover;
+}
+
+.quote__card-text {
+  font-size: 24px;
+  line-height: 1.6;
+  z-index: 1;
+}
+
+.quote__card-author {
+  width: fit-content;
+  margin: 0 auto;
+  padding: 10px 24px;
+  font-size: 16px;
+  background-color: var(--white);
+  border: 1px solid var(--gray-300);
+  border-radius: 5rem;
+  z-index: 1;
+}
+
+.quote__add-button {
+  font-size: 20px;
+  padding: 12px 16px;
+  color: var(--white);
+  background-color: var(--green-600);
+  border-radius: 5rem;
+  transition: background-color 0.3s ease;
+}
+
+.quote__add-button:hover {
+  background-color: var(--green-700);
+}
+
+/* Desktop screen */
+@media only screen and (min-width: 540px) {
+  .quote__container {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .quote__card {
+    min-height: 300px;
+  }
+
+  .quote__add-button {
+    width: 200px;
+    margin: 0 auto;
+  }
+}
