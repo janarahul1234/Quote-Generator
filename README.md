@@ -21,7 +21,7 @@ Open the app in your browser using the provided live demo link. A random quote i
 
 ## Installation
 Clone the repository:
-git clone https://github.com/your-username/mood-tracker.git
+git clone https://github.com/janarahul1234/mood-tracker.git
 Open index.html in a browser.
 Start tracking your moods!
 
