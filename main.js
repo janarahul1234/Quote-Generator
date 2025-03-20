@@ -1,6 +1,6 @@
-const showQuote = document.querySelector(".quote__card-text");
-const authorName = document.querySelector(".quote__card-author");
-const image = document.querySelector(".quote__card-img");
+const quote = document.querySelector(".quote__card-text");
+const author = document.querySelector(".quote__card-author");
+const cardImage = document.querySelector(".quote__card-img");
 
 const images = [
   {
@@ -21,48 +21,46 @@ const images = [
   },
 ];
 
-function dataFetch() {
-  // Define the URL
-  const url = "https://api.freeapi.app/api/v1/public/quotes/quote/random";
+// Define the URL
+const QUOTES_URL = "https://api.freeapi.app/api/v1/public/quotes/quote/random";
 
+fetchQuote();
+
+function fetchQuote() {
   // Fetch data from the URL
-  fetch(url)
-    .then((response) => {
+  fetch(QUOTES_URL)
+    .then((res) => {
       // Check if the response is successful
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      return response.json(); // Parse the response as JSON
+      if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+      return res.json(); // Parse the response as JSON
     })
     .then((data) => {
-      showQuote.innerText = data.data.content;
-      authorName.innerText = data.data.author;
+      quote.innerText = data?.data?.content;
+      author.innerText = data?.data?.author;
 
       const ramdom = Math.floor(Math.random() * 4);
-      image.src = images[ramdom].url;
+      cardImage.src = images[ramdom].url;
     })
     .catch((error) => {
       console.error("Error fetching data:", error); // Handle any errors
     });
 }
 
-dataFetch();
-
 function copyToClipboard() {
-  let text_to_copy = showQuote.innerHTML;
+  let quoteText = quote.innerText;
 
   navigator.clipboard
-    .writeText(text_to_copy)
+    .writeText(quoteText)
     .then(function () {
-      alert("copied!"); // success
+      alert("Copied!"); // success
     })
     .catch(function () {
-      alert("err"); // error
+      alert("Error!"); // error
     });
 }
 
 function exportData() {
-  const fileContent = `Quote: "${showQuote.innerHTML}"\nAuthor: ${authorName.innerHTML}`; // Format the data
+  const fileContent = `Quote: "${quote.innerHTML}"\nAuthor: ${author.innerHTML}`; // Format the data
   const blob = new Blob([fileContent], { type: "text/plain" }); // Create a text file blob
   const a = document.createElement("a"); // Create an anchor element
   a.href = URL.createObjectURL(blob); // Create a URL for the blob
@@ -70,8 +68,8 @@ function exportData() {
   a.click(); // Trigger the download
 }
 
-function shareBtn() {
-  const tweetText = `"${showQuote.innerText}" - ${authorName.innerText}`; // Format the tweet text
+function shareQuote() {
+  const tweetText = `"${quote.innerText}" - ${author.innerText}`; // Format the tweet text
   const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
     tweetText
   )}`; // Encode the text for the URL

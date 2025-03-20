@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./styles.css">
 
     <!-- ====================== TITLE ====================== -->
-    <title>Quote</title>
+    <title>Quote Generator</title>
 </head>
 
 <body>
@@ -18,7 +18,7 @@
             <div class="quote__buttons">
                 <button class="quote__button" onclick="copyToClipboard()">Copy</button>
 
-                <button class="quote__button btn--blue" onclick="shareBtn()">
+                <button class="quote__button btn--blue" onclick="shareQuote()">
                     <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <title>Twitter</title>
                         <path
@@ -38,7 +38,7 @@
                 <img class="quote__card-img">
             </div>
 
-            <button class="quote__add-button" onclick="dataFetch()">
+            <button class="quote__add-button" onclick="fetchQuote()">
                 New quote
             </button>
         </div>
