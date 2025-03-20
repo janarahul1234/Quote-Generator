@@ -14,7 +14,7 @@
 ![Quote Generator Thumbnail](image.png)
 
 ## Deployment Link
-[Live Demo]()
+[Live Demo](https://quote-generator-dwcq.onrender.com)
 
 ## How to Use
 Open the app in your browser using the provided live demo link. A random quote is displayed on load, and you can fetch a new one by clicking the "New Quote" button. Use the "Copy to Clipboard" button to copy the quote or the "Share on Twitter" button to tweet it. Click the "Export" button to save the quote as an image with a dynamic background.
